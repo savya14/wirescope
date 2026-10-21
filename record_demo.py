@@ -42,11 +42,11 @@ TEMP_VIDEO_DIR = DOCS_DIR / "temp_video"
 DEMO_URL = os.environ.get("DEMO_URL", "http://localhost:5173")
 
 # --- Encoding knobs (smoothness vs. file size) --------------------------------
-GIF_FPS = 18          # 18 is still fluid; trims size vs 20
-GIF_WIDTH = 760       # px; crisp on a README while keeping the GIF ~7-9 MB
+GIF_FPS = 20          # smooth continuous motion
+GIF_WIDTH = 900       # px; larger, crisper on a README (~13-17 MB)
 GIF_SIZE_WARN_MB = 12 # above this, lean on the mp4 fallback
 # Stable global palette + error-diffusion dithering = no inter-frame shimmer.
-PALETTE_VF = f"fps={GIF_FPS},scale={GIF_WIDTH}:-1:flags=lanczos,palettegen=max_colors=200:stats_mode=full"
+PALETTE_VF = f"fps={GIF_FPS},scale={GIF_WIDTH}:-1:flags=lanczos,palettegen=max_colors=256:stats_mode=full"
 GIF_LAVFI = (
     f"fps={GIF_FPS},scale={GIF_WIDTH}:-1:flags=lanczos [x]; "
     f"[x][1:v] paletteuse=dither=sierra2_4a"
@@ -73,13 +73,13 @@ def record_interactive_demo():
         browser = p.chromium.launch(
             headless=True,
             # Force a steady 30fps capture so motion is evenly sampled.
-            args=["--force-device-scale-factor=1"],
+            args=["--force-device-scale-factor=2"],  # retina render -> crisp downscale
         )
         context = browser.new_context(
             viewport={"width": 1280, "height": 800},
-            device_scale_factor=1,
+            device_scale_factor=2,  # 2x supersampling for sharp text
             record_video_dir=str(TEMP_VIDEO_DIR),
-            record_video_size={"width": 1280, "height": 800},
+            record_video_size={"width": 2560, "height": 1600},
             reduced_motion="no-preference",  # keep the app's entrance animations
         )
         page = context.new_page()

@@ -15,9 +15,8 @@
 
 ## 🎬 Live Interactive Demo
 
-![WireScope Demo](docs/demo.gif)
+https://github.com/user-attachments/assets/a968db5d-4025-4a0d-9a68-95a86e3f5294
 
-> *High-definition video fallback available at [`docs/demo.mp4`](docs/demo.mp4).*  
 > **Live site:** [wirescope.onrender.com](https://wirescope.onrender.com) *(free tier: the first visit after idle takes a few seconds to wake up)*
 
 ---
