@@ -18,7 +18,7 @@
 ![PCAP Analyzer Demo](docs/demo.gif)
 
 > *High-definition video fallback available at [`docs/demo.mp4`](docs/demo.mp4).*  
-> **Live site:** add your deployed URL here after following the [deployment guide](#-production-deployment-guide).
+> **Live site:** [pcap-analyzer-shep.onrender.com](https://pcap-analyzer-shep.onrender.com) *(free tier: the first visit after idle takes a few seconds to wake up)*
 
 ---
 
