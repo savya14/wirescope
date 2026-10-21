@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 capture_screenshots.py
-Automates capturing 14 crisp, retina-quality screenshots of the PCAP Analyzer React app.
+Automates capturing 14 crisp, retina-quality screenshots of the WireScope React app.
 Uses Playwright (sync API, headless Chromium, viewport 1600x1000, device_scale_factor=2).
 """
 

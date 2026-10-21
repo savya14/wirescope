@@ -3,7 +3,7 @@
 record_demo.py
 --------------
 Automates capturing a high-quality ~15-18 second interactive demo session
-of the PCAP Analyzer React frontend using Playwright, and encodes it into
+of the WireScope React frontend using Playwright, and encodes it into
 both an optimized docs/demo.gif (<8MB) and docs/demo.mp4.
 
 Workflow:

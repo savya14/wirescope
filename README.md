@@ -1,4 +1,4 @@
-# PCAP Forensic Traffic & Threat Analyzer
+# WireScope
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -15,7 +15,7 @@
 
 ## 🎬 Live Interactive Demo
 
-![PCAP Analyzer Demo](docs/demo.gif)
+![WireScope Demo](docs/demo.gif)
 
 > *High-definition video fallback available at [`docs/demo.mp4`](docs/demo.mp4).*  
 > **Live site:** [pcap-analyzer-shep.onrender.com](https://pcap-analyzer-shep.onrender.com) *(free tier: the first visit after idle takes a few seconds to wake up)*
@@ -26,7 +26,7 @@
 
 Network packet capture analysis is the cornerstone of cyber incident response and digital forensics. However, traditional tools either force investigators into dense, single-frame tabular views (Wireshark) or produce static command-line outputs that are difficult to correlate across macroscopic time windows.
 
-**PCAP Analyzer** bridges low-level packet dissection with institutional security analytics:
+**WireScope** bridges low-level packet dissection with institutional security analytics:
 - **Dual-Engine Dissection**: Uses PyShark / tshark 4.6.9 for deep application-layer protocol inspection with automated, zero-configuration Scapy fallback.
 - **Relational Forensic Database**: Loads dissected packets into an indexed SQLite database (`packets.db`) with optimized B-Tree queries and hierarchical XML export (`packets.xml`).
 - **Automated Threat Detection Engine**: Scans relational records for 5 distinct adversarial patterns: Port Scanning, Insecure Plaintext Protocols, C2 / Backdoor Ports, Heavy Talker Data Exfiltration, and ICMP Ping Sweeps.
@@ -148,7 +148,7 @@ The dashboard renders eight synchronized analytical visualizations:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/pcap-analyzer.git
+git clone https://github.com/savya14/pcap-analyzer.git
 cd pcap-analyzer
 ```
 

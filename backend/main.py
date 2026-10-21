@@ -1,7 +1,7 @@
 """
 backend/main.py
 ---------------
-FastAPI backend service for PCAP Forensic Traffic & Threat Analyzer.
+FastAPI backend service for WireScope.
 Exposes REST endpoints that wrap parser.py, detection.py, and SQLite database analytics.
 """
 
@@ -75,7 +75,7 @@ SCENARIOS = [
 ]
 
 app = FastAPI(
-    title="PCAP Analyzer API",
+    title="WireScope API",
     description="Forensic packet analysis and threat detection backend",
     version="2.0.0",
 )

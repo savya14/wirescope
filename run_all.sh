@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # run_all.sh
-# Starts both PCAP Analyzer servers:
+# Starts both WireScope servers:
 #   - Backend: FastAPI on http://localhost:8000
 #   - Frontend: Vite React on http://localhost:5173
 # ==============================================================================
@@ -12,7 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo "============================================================"
-echo " Starting PCAP Analyzer Platform"
+echo " Starting WireScope Platform"
 echo " Backend:  http://localhost:8000"
 echo " Frontend: http://localhost:5173"
 echo "============================================================"

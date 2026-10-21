@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProps> = ({ health }) => {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <h1 className="text-[22px] font-semibold text-[#e6e9ef] tracking-tight m-0">
-            PCAP Analyzer
+            WireScope
           </h1>
           <p className="text-[13px] text-[#8b94a7] mt-1 m-0">
             Forensic network traffic dissection, relational SQLite analysis, and threat detection
