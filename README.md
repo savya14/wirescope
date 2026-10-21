@@ -9,7 +9,7 @@
 [![Wireshark/tshark](https://img.shields.io/badge/tshark-4.6.9-1b5e20.svg)](https://www.wireshark.org/)
 
 > **A security-focused, institutional forensic network traffic analyzer and threat investigation platform.**  
-> Ingests `.pcap` / `.pcapng` packet captures, dissects protocol trees with **PyShark** (backed by native `tshark` or zero-config **Scapy** fallback), normalizes and indexes frames in **SQLite**, executes automated threat detection heuristics mapped to **MITRE ATT&CK**, and visualizes forensic telemetry through a decoupled **React 18 + TypeScript SPA** served by a **FastAPI** backend.
+> Ingests `.pcap` / `.pcapng` packet captures, dissects protocol trees with **PyShark** (backed by native `tshark` or zero-config **Scapy** fallback), normalizes and indexes frames in **SQLite**, executes automated threat detection heuristics annotated against **MITRE ATT&CK** techniques, and visualizes forensic telemetry through a decoupled **React 18 + TypeScript SPA** served by a **FastAPI** backend.
 
 ---
 
@@ -29,7 +29,7 @@ Network packet capture analysis is the cornerstone of cyber incident response an
 **WireScope** bridges low-level packet dissection with institutional security analytics:
 - **Dual-Engine Dissection**: Uses PyShark / tshark 4.6.9 for deep application-layer protocol inspection with automated, zero-configuration Scapy fallback.
 - **Relational Forensic Database**: Loads dissected packets into an indexed SQLite database (`packets.db`) with optimized B-Tree queries and hierarchical XML export (`packets.xml`).
-- **Automated Threat Detection Engine**: Scans relational records for 5 distinct adversarial patterns: Port Scanning, Insecure Plaintext Protocols, C2 / Backdoor Ports, Heavy Talker Data Exfiltration, and ICMP Ping Sweeps.
+- **Automated Threat Detection Engine**: Scans relational records for 5 distinct adversarial patterns: Port Scanning, Insecure Plaintext Protocols, C2 / Backdoor Ports, Heavy Talker / High-Volume Anomaly, and ICMP Ping Sweeps.
 - **Preset Threat Scenario Switching**: One-click switching between curated capture scenarios (Full Attack Chain, Port Scan, Malware C2 & Plaintext, Benign Baseline).
 - **Institutional Forensic UI**: Clean, restrained design system (`#0f1419` base, `#4a90d9` steel-blue accent, IBM Plex typography) with interactive SVG conversation matrix, Sankey host flows, time-series histograms, and paginated SQL packet explorer.
 
@@ -57,7 +57,7 @@ The detection engine (`detection.py`) executes five automated threat detection h
 | `port_scan` | **Port Scan Suspects** | `HIGH` | [T1046](https://attack.mitre.org/techniques/T1046/) | Source IP contacting $\ge 15$ distinct destination ports on a single host. Identifies SYN scan initiators and flags total probes, target host, and time window. |
 | `plaintext_protocols` | **Plaintext / Insecure Protocols** | `MEDIUM` | [T1040](https://attack.mitre.org/techniques/T1040/) | Traffic detected on unencrypted service ports (21/FTP, 23/Telnet, 25/SMTP, 80/HTTP, 110/POP3, 143/IMAP) or matching unencrypted application protocols. Highlights credential exposure risks. |
 | `suspicious_ports` | **Suspicious / C2 Backdoors** | `MEDIUM` | [T1571](https://attack.mitre.org/techniques/T1571/) | Active traffic on known exploit listeners or botnet channels: 4444 (Metasploit default listener), 31337 (Back Orifice C2), 6667 (IRC botnet), 1337 (Elite backdoor). |
-| `heavy_talkers` | **Heavy Talker Traffic Anomaly** | `LOW` | [T1048](https://attack.mitre.org/techniques/T1048/) | Dominant source IP transmitting $>40\%$ of total capture volume and exceeding the 95th percentile byte threshold. Highlights data exfiltration or bandwidth anomalies. |
+| `heavy_talkers` | **Heavy Talker Traffic Anomaly** | `LOW` | [T1048](https://attack.mitre.org/techniques/T1048/) | Dominant source IP transmitting $>40\%$ of total capture volume and exceeding the 95th percentile byte threshold. Flags potential bulk data transfer or bandwidth anomalies. |
 | `icmp_volume` | **Elevated ICMP Sweep / Flood** | `LOW` | [T1498](https://attack.mitre.org/techniques/T1498/) | Anomalous ICMP count ($\ge 15$ packets or $>2.5\times$ baseline average) sent to single or distributed targets. Identifies ping reconnaissance or low-rate denial of service. |
 
 ---
