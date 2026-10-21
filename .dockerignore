@@ -1,0 +1,11 @@
+.venv
+**/node_modules
+frontend/dist
+data
+packets.db
+packets.xml
+my_traffic.pcap
+screenshots
+docs
+**/__pycache__
+.git

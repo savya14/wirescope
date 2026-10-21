@@ -1,0 +1,12 @@
+# Render blueprint: one Docker web service serves both the API and the React app.
+services:
+  - type: web
+    name: pcap-analyzer
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/scenarios
+    envVars:
+      - key: MAX_UPLOAD_MB
+        value: "25"
+      - key: SESSION_TTL_SECONDS
+        value: "3600"

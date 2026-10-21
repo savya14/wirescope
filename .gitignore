@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+frontend/dist/
+data/
+# generated per run by the backend
+packets.db
+packets.xml
+# personal capture
+my_traffic.pcap
+.DS_Store
