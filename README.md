@@ -18,7 +18,7 @@
 ![WireScope Demo](docs/demo.gif)
 
 > *High-definition video fallback available at [`docs/demo.mp4`](docs/demo.mp4).*  
-> **Live site:** [pcap-analyzer-shep.onrender.com](https://pcap-analyzer-shep.onrender.com) *(free tier: the first visit after idle takes a few seconds to wake up)*
+> **Live site:** [wirescope.onrender.com](https://wirescope.onrender.com) *(free tier: the first visit after idle takes a few seconds to wake up)*
 
 ---
 
@@ -148,8 +148,8 @@ The dashboard renders eight synchronized analytical visualizations:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/savya14/pcap-analyzer.git
-cd pcap-analyzer
+git clone https://github.com/savya14/wirescope.git
+cd wirescope
 ```
 
 ### 2. Set Up Python Virtual Environment
@@ -265,7 +265,7 @@ Every browser gets a random session id (sent as `X-Session-Id`). The backend kee
 ## 📂 Repository File Tree
 
 ```text
-PCAP/
+wirescope/
 ├── backend/
 │   ├── __init__.py
 │   └── main.py                 # FastAPI service wrapping forensic modules & REST endpoints
